@@ -99,8 +99,8 @@ https://www.erlang-solutions.com/blog/which-companies-are-using-erlang-and-why-m
 ## Whatsapp
 - 2013: 54 billion messages in 24 hours
 - 10 engineers server side (32 in total)
-- 1 instance: 2 million concurrent TCP conns
-- reduce: infra costs, team size
+- per instance: 2 million TCP connections
+- 📉 infra costs, team size
 
 <small class="extra-small">
 
@@ -224,7 +224,7 @@ https://www.youtube.com/watch?v=JvBT4XBdoUE
 - hot code replacement
 - telemetry
 ---
-```ex
+<!-- ```ex
 FLAME.call(MyApp.FFMpegRunner, fn ->
   # I'm runner on a short-lived, temporary server
   tmp_dir = Path.join(System.tmp_dir!(), Ecto.UUID.generate())
@@ -242,7 +242,7 @@ end)
 - inline in tests
 
 </aside>
----
+--- -->
 ## 🍿 Demo Time
 
 
@@ -272,7 +272,7 @@ Process.exit(pid, :kill)
 [PhoenixTest + Playwright + Tidewave](zed:///Users/ftes/src/phoenix_test_playwright_example)
 ---
 # The End
----
+<!-- ---
 #### BEAM
 <img src="/img/2-million.png" class="rstretch" />
 
@@ -284,8 +284,8 @@ Process.exit(pid, :kill)
 https://www.phoenixframework.org/blog/the-road-to-2-million-websocket-connections
 
 </small>
----
-#### BEAM
+--- -->
+<!-- #### BEAM
 ### Does it all
 <div style="font-size: 0.7em;">
 
@@ -307,8 +307,8 @@ https://www.phoenixframework.org/blog/the-road-to-2-million-websocket-connection
 Sasa Juric: Erlang in Action
 
 </small>
----
-## Let it crash
+--- -->
+<!-- ## Let it crash
 ### Supervision trees
 <img src="/img/supervision.jpg" class="r-stretch" />
 
@@ -317,8 +317,8 @@ Sasa Juric: Erlang in Action
 Sasa Juric: Elixir in Action
 
 </small>
----
-```ex
+--- -->
+<!-- ```ex
 current_process = self()
 
 # Spawn an Elixir process (not an operating system one!)
@@ -334,11 +334,11 @@ end
 <pre class="mermaid">
 sequenceDiagram
     create participant spawned
-    current-->>spawned: spawn
-    spawned->>current: {:msg, "hello world"}
+    current->spawned: spawn
+    spawned->current: {:msg, "hello world"}
 </pre>
----
-<div class="r-hstack">
+--- -->
+<!-- <div class="r-hstack">
 
 ```ex
 defmodule CounterProcess do
@@ -374,9 +374,9 @@ end
 <pre class="mermaid">
 sequenceDiagram
     create participant c1
-    main-->>c1: spawn
+    main->>c1: spawn
     create participant c2
-    main-->>c2: spawn
+    main->>c2: spawn
     main->>c1: {:increment, main}
     main->>c2: :crash
     destroy c2
@@ -385,8 +385,8 @@ sequenceDiagram
 </pre>
 
 </div>
----
-### BEAM vs JVM
+--- -->
+<!-- ### BEAM vs JVM
 
 <div style="font-size: 0.5em">
 
@@ -405,8 +405,8 @@ https://www.erlang-solutions.com/blog/beam-jvm-virtual-machines-comparing-and-co
 
 </small>
 </div>
----
-## OOP vs. Elixir
+--- -->
+<!-- ## OOP vs. Elixir
 <img src="/img/polymorphism.png" class="r-stretch" />
 
 - Modules: define + impl behaviour
@@ -417,7 +417,7 @@ https://www.erlang-solutions.com/blog/beam-jvm-virtual-machines-comparing-and-co
 
 [Gang of None? Design Patterns in Elixir](https://www.youtube.com/watch?v=agkXUp0hCW8&t=1590s)
 
-</small>
+</small> -->
                   </textarea>
                 </section>
             </div>
