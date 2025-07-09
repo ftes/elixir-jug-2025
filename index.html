@@ -44,14 +44,23 @@
             <div class="slides">
                 <section data-markdown>
                     <textarea data-template>
-#### Your stack is too damn complex.
-## Let it crash with <span style="font-size: 1.5em; font-weight: bold;">Elixir</span>
+## There is NO
+## perfect stack
 ---
-1. Use cases
+## Imagine
+- AI start up
+- Logistics enterprise
+- Niche embedded leader
+- Telco provider
+---
+<!-- #### Your stack is too damn complex.
+## Let it crash with <span style="font-size: 1.5em; font-weight: bold;">Elixir</span>
+--- -->
+<!-- 1. Use cases
 2. BEAM: The Platform
 3. Elixir: The Language
----
-> Elixir is a dynamic, \
+--- -->
+<!-- > Elixir is a dynamic, \
 > functional language \
 > for building scalable
 > and maintainable applications.
@@ -61,8 +70,8 @@
 https://elixir-lang.org/
 
 </small>
----
-> Elixir runs on the Erlang VM (BEAM), \
+--- -->
+<!-- > Elixir runs on the Erlang VM (BEAM), \
 > known for creating low-latency, \
 > distributed, and fault-tolerant systems.
 
@@ -71,14 +80,14 @@ https://elixir-lang.org/
 https://elixir-lang.org/
 
 </small>
----
-## Esoteric nonsense?
----
+--- -->
+<!-- ## Esoteric nonsense?
+--- -->
 ## Cisco
 <img src="/img/cisco.avif" class="r-stretch" />
 
 - 2018: ships 2 million devices per year running Erlang
-- **90% of all internet traffic** going through routers and switches controlled by Erlang
+- **90% of all internet traffic** going through routers and switches controlled by stack
 
 <small class="extra-small">
 
@@ -173,10 +182,15 @@ https://elixir-lang.org/blog/2021/01/13/orchestrating-computer-vision-with-elixi
 ## Other companies
 - Discord (chat)
 - BBC (web traffic)
+- Maersk (logistics)
 - PepsiCo (biz intelligence)
 - Remote.com (employment)
 - V7 Labs (ML pipelines)
 - FarmBot (embedded)
+---
+## Erlang / Elixir
+----
+# BEAM
 ---
 <!-- ## Domains
 - Web development
@@ -190,40 +204,23 @@ https://elixir-lang.org/blog/2021/01/13/orchestrating-computer-vision-with-elixi
 ### Erlang is so old
 #### Doesn't the stack suck?
 --- -->
-## BEAM
-#### = Erlang VM
-### The hidden champion
----
-<img src="/img/processes.png" />
-
-- actor model
-- message passing / shared nothing
-- preemptive scheduling
-
-<aside class="notes">
-
-- like microservices
-- separate failures
-- prioritize overall system progress
-
-</aside>
----
-###  OS for your app
-<img src="/img/beam-arch2.png" class="r-stretch" />
+<img src="/img/beam-1-process.png" />
 
 <small>
 
-https://www.youtube.com/watch?v=JvBT4XBdoUE
+[Sasa Juric: The Soul of Erlang and Elixir](https://www.youtube.com/watch?v=JvBT4XBdoUE)
 
 </small>
 ---
-### Kubernetes for your app
-- battle tested since 1985
-- distributed
-- introspection
-- hot code replacement
-- telemetry
+<img src="/img/beam-2-spawn.png" />
 ---
+<img src="/img/beam-3-processes.png" />
+---
+<img src="/img/beam-4-messages.png" />
+---
+<img src="/img/beam-5-vm.png" />
+---
+
 <!-- ```ex
 FLAME.call(MyApp.FFMpegRunner, fn ->
   # I'm runner on a short-lived, temporary server
@@ -244,34 +241,51 @@ end)
 </aside>
 --- -->
 ## 🍿 Demo Time
-
-
-Soul of Erlang and Elixir \
-[sasa1977/soul_of_erlang_and_elixir](https://github.com/sasa1977/soul_of_erlang_and_elixir)
-
-<aside class="notes">
-
-- http://localhost:4000
-- http://localhost:4000/home
-
-```ex
-pid = pid(0, 1753, 0)
-Process.info(pid, :current_stacktrace)
-Runtime.trace(pid)
-Process.exit(pid, :kill)
-```
-
-</aside>
+#### Soul of Erlang and Elixir
+---
+<img src="/img/soul-1-client.png" />
+---
+<img src="/img/soul-2-clients.png" />
+---
+<img src="/img/soul-3-calc.png" />
+---
+<img src="/img/soul-5-distributed.png" />
+---
+## BEAM
+- powerful primitives
+- fault tolerant
+- introspectable
+- hot code replacement
+- distributed
 ---
 ## 🍿 Demo Time
-
-[LiveBook](http://localhost:32123)
+#### Elixir DX
 ---
 ## 🍿 Demo Time
+#### Elixir ML
+---
+## 🍿 Demo Time
+#### Playwright / Tidewave
+---
+## Uniform = Simple
 
-[PhoenixTest + Playwright + Tidewave](zed:///Users/ftes/src/phoenix_test_playwright_example)
+<div class="fragment">
+
+- dev
+- test
+- deploy
+- debug
+
+</div>
 ---
 # The End
+<!-- .slide: data-background-image="/img/bogengaudi.webp" -->
+<div class="fragment" style="backdrop-filter: blur(8px); text-align: right; padding: 1.5rem; background-color: rgb(0 0 0 / 0.3); border-radius: 0.75 rem; width: fit-content; margin-top: 20rem; float: right;">
+
+## BogenGaudi <!-- .element style="color: white!important" -->
+#### 📦 Team Events and more 📦 <!-- .element style="color: white!important" --> <!-- element: style="color: white!important" -->
+
+</div>
 <!-- ---
 #### BEAM
 <img src="/img/2-million.png" class="rstretch" />
