@@ -1,11 +1,12 @@
-<!-- livebook:{"persist_outputs":true} -->
-
 # Elixir JUG Local
 
 ```elixir
+Application.put_env(:phoenix_test, :endpoint, PhoenixPlayground.Endpoint)
+
 Mix.install([
   {:req, "~> 0.5.14"},
-  {:phoenix_playground, "~> 0.1.7"}
+  {:phoenix_playground, "~> 0.1.7"},
+  {:phoenix_test, ">= 0.0.0", runtime: false}
 ])
 ```
 
@@ -34,7 +35,7 @@ ExUnit.run()
 <!-- livebook:{"output":true} -->
 
 ```
-Running ExUnit with seed: 644459, max_cases: 28
+Running ExUnit with seed: 175802, max_cases: 28
 
 .
 Finished in 0.00 seconds (0.00s async, 0.00s sync)
@@ -102,7 +103,7 @@ defmodule DemoLive do
 
   def render(assigns) do
     ~H"""
-    <span><%= @count %></span>
+    <span>Count: <%= @count %></span>
     <button phx-click="inc">+</button>
     <button phx-click="dec">-</button>
     """
@@ -123,13 +124,54 @@ defmodule DemoLive do
   defp noreply(socket), do: {:noreply, socket}
 end
 
-PhoenixPlayground.start(live: DemoLive)
+# PhoenixPlayground.start(live: DemoLive)
 ```
 
 <!-- livebook:{"output":true} -->
 
 ```
-{:ok, #PID<0.354.0>}
+{:module, DemoLive, <<70, 79, 82, 49, 0, 0, 24, ...>>, {:noreply, 1}}
+```
+
+```elixir
+Logger.configure(level: :warning)
+
+defmodule DemoLiveTest do
+  import PhoenixTest
+  
+  use ExUnit.Case
+  use PhoenixPlayground.Test, live: DemoLive
+
+  test "it works" do
+    build_conn()
+    |> visit("/")
+    |> assert_has("span", text: "Count: 0")
+    |> click_button("+")
+    |> assert_has("span", text: "Count: 1")
+    |> click_button("+")
+    |> assert_has("span", text: "Count: 2")
+    |> click_button("-")
+    |> assert_has("span", text: "Count: 1")
+  end
+end
+
+ExUnit.run()
+```
+
+<!-- livebook:{"output":true} -->
+
+```
+Running ExUnit with seed: 175802, max_cases: 28
+
+.
+Finished in 0.00 seconds (0.00s async, 0.00s sync)
+1 test, 0 failures
+```
+
+<!-- livebook:{"output":true} -->
+
+```
+%{total: 1, failures: 0, excluded: 0, skipped: 0}
 ```
 
 ## Machine Learning
